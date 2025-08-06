@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.log
+
+# SQLite database
+db.sqlite3
+*.sqlite3
+
+# Django secret key / local settings
+.env
+*.env
+
+# Django static files
+/staticfiles/
+/media/
+/*.log
+
+# VSCode
+.vscode/
+
+# macOS
+.DS_Store
+
+# Pycharm
+.idea/
+
+# Node (if you're using npm for frontend)
+node_modules/
+
+# Coverage reports
+htmlcov/
+.coverage
+*.cover
+.coverage.*
+
+# Migrations (optional if you don’t want to version them all)
+# ** Be careful, only ignore migrations if you're sure **
+# */migrations/*.py
+# */migrations/*.pyc
+
+# Render deployment files (optional if using .render)
+render.yaml

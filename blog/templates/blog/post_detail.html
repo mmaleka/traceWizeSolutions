@@ -1,0 +1,40 @@
+{% extends 'blog/base.html' %}
+{% load markdownify %}
+
+{% block title %}{{ post.title }} | TraceWize Blog{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-10 mx-auto">
+        <h1 class="mb-3">{{ post.title }}</h1>
+
+        <p class="text-muted">
+            Published on {{ post.created_at|date:"F j, Y" }}
+            {% if post.category %}
+                in <a href="{% url 'category_posts' post.category.slug %}">{{ post.category.name }}</a>
+            {% endif %}
+        </p>
+
+        <hr>
+
+        {% if post.featured_image %}
+            <img src="{{ post.featured_image.url }}" class="featured-image mb-4" alt="{{ post.title }}">
+        {% endif %}
+
+        <div class="post-body mb-4">
+            {{ post.content|markdownify }}
+        </div>
+
+        <div class="card p-4 mb-4 text-center border-primary">
+        <h4>Take the Next Step</h4>
+            <p class="mb-2">Ready to improve your traceability processes?</p>
+            <a href="/subscribe/" class="btn btn-primary mb-2">📅 Book a Demo</a>
+            <a href="/subscribe/" class="btn btn-outline-primary mb-2">🚀 Try Our Traceability Solution</a>
+            <a href="/subscribe/" class="btn btn-outline-secondary">📬 Subscribe for Insights</a>
+        </div>
+
+
+        <a href="{% url 'post_list' %}" class="btn btn-outline-secondary">← Back to News</a>
+    </div>
+</div>
+{% endblock %}

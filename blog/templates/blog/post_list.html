@@ -1,0 +1,34 @@
+<!-- templates/blog/post_list.html -->
+{% extends 'blog/base.html' %}
+{% load markdownify %}
+
+{% block title %}Blog | TraceWize Solutions{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <h1 class="mb-4">Latest Posts</h1>
+        {% for post in posts %}
+            <div class="blog-card">
+                <h3><a href="{% url 'post_detail' slug=post.slug %}">{{ post.title }}</a></h3>
+                <p class="text-muted">{{ post.created_at|date:"F d, Y" }} | {{ post.category.name }}</p>
+                <p>{{ post.content|truncatewords:40|markdownify }}</p>
+                <a href="{% url 'post_detail' slug=post.slug %}">Read more</a>
+            </div>
+        {% empty %}
+            <p>No blog posts yet.</p>
+        {% endfor %}
+    </div>
+
+    <div class="col-md-4">
+        <h4>Categories</h4>
+        <ul class="list-unstyled">
+            {% for category in categories %}
+                <li>
+                    <a href="{% url 'category_posts' slug=category.slug %}">{{ category.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
