@@ -22,9 +22,9 @@ def main():
         django.setup()
         from django.contrib.auth import get_user_model
         User = get_user_model()
-        if not User.objects.filter(username="mmaleka").exists():
+        if not User.objects.filter(username="mmaleka2").exists():
             print("🔐 Creating default superuser...")
-            User.objects.create_superuser("mmaleka", "mmaleka@example.com", "Mpho@@6829")
+            User.objects.create_superuser("mmaleka2", "mmaleka@example.com", "Mpho@@6829")
             print("✅ Superuser created.")
 
 
