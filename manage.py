@@ -16,21 +16,21 @@ def main():
             "forget to activate a virtual environment?"
         ) from exc
 
-    # Auto-create superuser if it doesn't exist
-    from django.core.management import call_command
-    import django
-    django.setup()
-    from django.contrib.auth import get_user_model
+    # # Auto-create superuser if it doesn't exist
+    # from django.core.management import call_command
+    # import django
+    # django.setup()
+    # from django.contrib.auth import get_user_model
 
-    User = get_user_model()
-    if not User.objects.filter(username="mmaleka2").exists():
-        print("🔐 Creating default superuser...")
-        User.objects.create_superuser(
-            username="mmaleka2",
-            email="mmaleka@example.com",
-            password="Mpho@@6829"
-        )
-        print("✅ Superuser created.")
+    # User = get_user_model()
+    # if not User.objects.filter(username="mmaleka2").exists():
+    #     print("🔐 Creating default superuser...")
+    #     User.objects.create_superuser(
+    #         username="mmaleka2",
+    #         email="mmaleka@example.com",
+    #         password="Mpho@@6829"
+    #     )
+    #     print("✅ Superuser created.")
 
     execute_from_command_line(sys.argv)
 
