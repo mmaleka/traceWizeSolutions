@@ -79,6 +79,7 @@ WSGI_APPLICATION = 'tracewizesolutions.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 # Check if we are in Render (production) by looking for the DATABASE_URL environment variable
+print("os.environ.get('DATABASE_URL'): ", os.environ.get('DATABASE_URL'))
 if os.environ.get('DATABASE_URL'):
     DATABASES = {
         'default': dj_database_url.config(
